@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CoreBll
 {
+
     public class Bank
     {
         public int Id { get; set; }

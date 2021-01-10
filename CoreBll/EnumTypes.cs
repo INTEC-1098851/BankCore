@@ -30,7 +30,7 @@ namespace CoreBll
     public enum Status
     {
         Active=1,
-
+        Inactive
     }
     public enum TransactionType
     {

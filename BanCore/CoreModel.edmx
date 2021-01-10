@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="getaccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountId" Type="int" Mode="In" />
+          <Parameter Name="AccountNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="CurrencyTypeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getbanks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getcards" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="ClientId" Type="int" Mode="In" />
+          <Parameter Name="CardNumber" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getclients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Identification" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="gettransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="PayerId" Type="int" Mode="In" />
+          <Parameter Name="PayerAccount" Type="varchar" Mode="In" />
+          <Parameter Name="PayerIdentification" Type="varchar" Mode="In" />
+          <Parameter Name="PayeeId" Type="int" Mode="In" />
+          <Parameter Name="PayeeAccount" Type="varchar" Mode="In" />
+          <Parameter Name="PayeeIdentification" Type="varchar" Mode="In" />
+          <Parameter Name="TransactionNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ReferenceNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CreationDateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="CreationDateTo" Type="datetime" Mode="In" />
+          <Parameter Name="EffectiveDateFrom" Type="datetime" Mode="In" />
+          <Parameter Name="EffectiveDateTo" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertOrUpdateAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Alias" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="varchar" Mode="In" />
+          <Parameter Name="OwnerId" Type="int" Mode="In" />
+          <Parameter Name="AccountTypeId" Type="int" Mode="In" />
+          <Parameter Name="LastUpdate" Type="datetime" Mode="In" />
+          <Parameter Name="LastTransation" Type="datetime" Mode="In" />
+          <Parameter Name="AccountManagerId" Type="int" Mode="In" />
+          <Parameter Name="CurrencyTypeId" Type="int" Mode="In" />
+          <Parameter Name="StatusId" Type="int" Mode="In" />
+          <Parameter Name="Balance" Type="float" Mode="In" />
+          <Parameter Name="NewId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertOrUpdateCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="OwnerId" Type="int" Mode="In" />
+          <Parameter Name="Number" Type="varchar" Mode="In" />
+          <Parameter Name="CutOffDate" Type="datetime" Mode="In" />
+          <Parameter Name="PaymentLimitDate" Type="datetime" Mode="In" />
+          <Parameter Name="StatusId" Type="int" Mode="In" />
+          <Parameter Name="Limit" Type="float" Mode="In" />
+          <Parameter Name="CurrencyTypes" Type="int" Mode="In" />
+          <Parameter Name="Balance" Type="float" Mode="In" />
+          <Parameter Name="NewId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertOrUpdateClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="IdentificationTypeId" Type="int" Mode="In" />
+          <Parameter Name="Identification" Type="varchar" Mode="In" />
+          <Parameter Name="Telephone" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="GenderId" Type="int" Mode="In" />
+          <Parameter Name="StatusId" Type="int" Mode="In" />
+          <Parameter Name="NewId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertOrUpdateTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="PayerId" Type="int" Mode="In" />
+          <Parameter Name="PayerAccount" Type="varchar" Mode="In" />
+          <Parameter Name="PayerIdentification" Type="varchar" Mode="In" />
+          <Parameter Name="PayeeId" Type="int" Mode="In" />
+          <Parameter Name="PayeeAccount" Type="varchar" Mode="In" />
+          <Parameter Name="PayeeIdentification" Type="varchar" Mode="In" />
+          <Parameter Name="PayeeBankId" Type="int" Mode="In" />
+          <Parameter Name="TransactionTypeId" Type="int" Mode="In" />
+          <Parameter Name="CreationDate" Type="datetime" Mode="In" />
+          <Parameter Name="Number" Type="varchar" Mode="In" />
+          <Parameter Name="Concept" Type="varchar" Mode="In" />
+          <Parameter Name="Debit" Type="float" Mode="In" />
+          <Parameter Name="Credit" Type="float" Mode="In" />
+          <Parameter Name="CurrencyTypeId" Type="int" Mode="In" />
+          <Parameter Name="Balance" Type="float" Mode="In" />
+          <Parameter Name="ReferenceNumber" Type="varchar" Mode="In" />
+          <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
+          <Parameter Name="StatusId" Type="int" Mode="In" />
+          <Parameter Name="NewId" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="CoreDbModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CoreDbEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="getaccounts" ReturnType="Collection(CoreDbModel.getaccounts_Result)">
+            <Parameter Name="AccountId" Mode="In" Type="Int32" />
+            <Parameter Name="AccountNumber" Mode="In" Type="String" />
+            <Parameter Name="ClientId" Mode="In" Type="Int32" />
+            <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getbanks" ReturnType="Collection(CoreDbModel.getbanks_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getcards" ReturnType="Collection(CoreDbModel.getcards_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="ClientId" Mode="In" Type="Int32" />
+            <Parameter Name="CardNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getclients" ReturnType="Collection(CoreDbModel.getclients_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Identification" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="gettransactions" ReturnType="Collection(CoreDbModel.gettransactions_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="PayerId" Mode="In" Type="Int32" />
+            <Parameter Name="PayerAccount" Mode="In" Type="String" />
+            <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+            <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+            <Parameter Name="PayeeAccount" Mode="In" Type="String" />
+            <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+            <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+            <Parameter Name="CreationDateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="CreationDateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="EffectiveDateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="EffectiveDateTo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrUpdateAccount">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Alias" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="String" />
+            <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+            <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="LastUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastTransation" Mode="In" Type="DateTime" />
+            <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+            <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="Balance" Mode="In" Type="Double" />
+            <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrUpdateCard">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+            <Parameter Name="Number" Mode="In" Type="String" />
+            <Parameter Name="CutOffDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PaymentLimitDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="Limit" Mode="In" Type="Double" />
+            <Parameter Name="CurrencyTypes" Mode="In" Type="Int32" />
+            <Parameter Name="Balance" Mode="In" Type="Double" />
+            <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrUpdateClient">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="IdentificationTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="Identification" Mode="In" Type="String" />
+            <Parameter Name="Telephone" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="GenderId" Mode="In" Type="Int32" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrUpdateTransaction">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="PayerId" Mode="In" Type="Int32" />
+            <Parameter Name="PayerAccount" Mode="In" Type="String" />
+            <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+            <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+            <Parameter Name="PayeeAccount" Mode="In" Type="String" />
+            <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+            <Parameter Name="PayeeBankId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="CreationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Number" Mode="In" Type="String" />
+            <Parameter Name="Concept" Mode="In" Type="String" />
+            <Parameter Name="Debit" Mode="In" Type="Double" />
+            <Parameter Name="Credit" Mode="In" Type="Double" />
+            <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="Balance" Mode="In" Type="Double" />
+            <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+            <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getaccounts_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Alias" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="OwnerId" Nullable="true" />
+          <Property Type="Int32" Name="AccountTypeId" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LastUpdate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LastTransaction" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="AccountManagerId" Nullable="true" />
+          <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+          <Property Type="Double" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getbanks_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Identification" Nullable="true" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="getcards_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="OwnerId" Nullable="true" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CutOffDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="PaymentLimitDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+          <Property Type="Double" Name="Limit" Nullable="true" />
+          <Property Type="Int32" Name="CurrencyTypes" Nullable="true" />
+          <Property Type="Double" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getclients_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdentificationTypeId" Nullable="true" />
+          <Property Type="String" Name="Identification" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="Telephone" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="700" />
+          <Property Type="Int32" Name="GenderId" Nullable="true" />
+          <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="gettransactions_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="PayerId" Nullable="true" />
+          <Property Type="String" Name="PayerAccount" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="PayerIdentification" Nullable="true" MaxLength="13" />
+          <Property Type="Int32" Name="PayeeId" Nullable="true" />
+          <Property Type="String" Name="PayeeAccount" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="PayeeIdentification" Nullable="true" MaxLength="13" />
+          <Property Type="Int32" Name="PayeeBankId" Nullable="true" />
+          <Property Type="Int32" Name="TransactionTypeId" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="Concept" Nullable="true" MaxLength="700" />
+          <Property Type="Double" Name="Debit" Nullable="true" />
+          <Property Type="Double" Name="Credit" Nullable="true" />
+          <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+          <Property Type="Double" Name="Balance" Nullable="true" />
+          <Property Type="String" Name="ReferenceNumber" Nullable="true" MaxLength="75" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="StatusId" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoreDbModelStoreContainer" CdmEntityContainer="CoreDbEntities" >
+          <FunctionImportMapping FunctionImportName="getaccounts" FunctionName="CoreDbModel.Store.getaccounts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CoreDbModel.getaccounts_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="LastTransaction" ColumnName="LastTransaction" />
+                <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getbanks" FunctionName="CoreDbModel.Store.getbanks">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CoreDbModel.getbanks_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Identification" ColumnName="Identification" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getcards" FunctionName="CoreDbModel.Store.getcards">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CoreDbModel.getcards_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CutOffDate" ColumnName="CutOffDate" />
+                <ScalarProperty Name="PaymentLimitDate" ColumnName="PaymentLimitDate" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Limit" ColumnName="Limit" />
+                <ScalarProperty Name="CurrencyTypes" ColumnName="CurrencyTypes" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getclients" FunctionName="CoreDbModel.Store.getclients">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CoreDbModel.getclients_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="IdentificationTypeId" ColumnName="IdentificationTypeId" />
+                <ScalarProperty Name="Identification" ColumnName="Identification" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="gettransactions" FunctionName="CoreDbModel.Store.gettransactions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CoreDbModel.gettransactions_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+                <ScalarProperty Name="PayerAccount" ColumnName="PayerAccount" />
+                <ScalarProperty Name="PayerIdentification" ColumnName="PayerIdentification" />
+                <ScalarProperty Name="PayeeId" ColumnName="PayeeId" />
+                <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+                <ScalarProperty Name="PayeeIdentification" ColumnName="PayeeIdentification" />
+                <ScalarProperty Name="PayeeBankId" ColumnName="PayeeBankId" />
+                <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateAccount" FunctionName="CoreDbModel.Store.InsertOrUpdateAccount" />
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateCard" FunctionName="CoreDbModel.Store.InsertOrUpdateCard" />
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateClient" FunctionName="CoreDbModel.Store.InsertOrUpdateClient" />
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateTransaction" FunctionName="CoreDbModel.Store.InsertOrUpdateTransaction" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

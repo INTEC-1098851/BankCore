@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CoreBll
 {
+
     public class Transaction
     {
         public int Id { get; set; }
@@ -19,7 +20,7 @@ namespace CoreBll
         public int PayeeBankId { get; set; }
         public string PayeeBankName { get; set; }
         public TransactionType TransactionType { get; set; }
-        public int TransactionTypeId { get { return (int)TransactionType; } }
+        public int? TransactionTypeId { get { return (int)TransactionType; } }
         public DateTime CreationDate { get; set; }
         public string CreationDateStr { get { return CreationDate.ToString("dd-MM-yyyy"); } }
         public string Number { get; set; }

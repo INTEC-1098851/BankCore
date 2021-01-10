@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CoreBll
 {
+ 
     public class Account
     {
         public int Id { get; set; }
@@ -12,7 +13,7 @@ namespace CoreBll
         public Client Owner { get; set; }
         public int OwnerId { get; set; }
         public AccountType AccountType { get; set; }
-        public int AccountTypeId { get { return (int)AccountType; } }
+        public int? AccountTypeId { get { return (int)AccountType; } }
         public DateTime CreationDate { get; set; }
         public string CreationDateStr { get { return CreationDate.ToString("dd-MM-yyyy"); } }
         public DateTime LastUpdate { get; set; }
