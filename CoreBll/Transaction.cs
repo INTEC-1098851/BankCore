@@ -19,7 +19,7 @@ namespace CoreBll
         public Bank Bank { get; set; }
         public int PayeeBankId { get; set; }
         public string PayeeBankName { get; set; }
-        public TransactionType TransactionType { get; set; }
+        public TransactionTypeEnum TransactionType { get; set; }
         public int? TransactionTypeId { get { return (int)TransactionType; } }
         public DateTime CreationDate { get; set; }
         public string CreationDateStr { get { return CreationDate.ToString("dd-MM-yyyy"); } }

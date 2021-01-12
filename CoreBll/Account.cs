@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace CoreBll
 {
- 
+
     public class Account
     {
         public int Id { get; set; }
@@ -30,6 +29,5 @@ namespace CoreBll
         public float AuthorizationAmount { get; set; }
         public float Available { get; set; }
         public float YesterdayBalance { get; set; }
-        
-    }
+    }     
 }

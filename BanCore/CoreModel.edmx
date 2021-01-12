@@ -4,7 +4,86 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CoreDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Alias" Type="varchar" MaxLength="75" />
+          <Property Name="Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="AccountTypeId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="LastUpdate" Type="datetime" />
+          <Property Name="LastTransation" Type="datetime" />
+          <Property Name="AccountManagerId" Type="int" />
+          <Property Name="CurrencyTypeId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Balance" Type="float" />
+        </EntityType>
+        <EntityType Name="banks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="Identification" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="cards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="75" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CutOffDate" Type="datetime" />
+          <Property Name="PaymentLimitDate" Type="datetime" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Limit" Type="float" />
+          <Property Name="CurrencyTypes" Type="int" />
+          <Property Name="Balance" Type="float" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdentificationTypeId" Type="int" />
+          <Property Name="Identification" Type="varchar" MaxLength="13" />
+          <Property Name="Telephone" Type="varchar" MaxLength="13" />
+          <Property Name="Address" Type="varchar" MaxLength="700" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="CurrencyTypeId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PayerId" Type="int" />
+          <Property Name="PayerAccount" Type="varchar" MaxLength="75" />
+          <Property Name="PayerIdentification" Type="varchar" MaxLength="13" />
+          <Property Name="PayeeId" Type="int" Nullable="false" />
+          <Property Name="PayeeAccount" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="PayeeIdentification" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="PayeeBankId" Type="int" Nullable="false" />
+          <Property Name="TransactionTypeId" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="Number" Type="varchar" MaxLength="75" />
+          <Property Name="Concept" Type="varchar" MaxLength="700" />
+          <Property Name="Debit" Type="float" />
+          <Property Name="Credit" Type="float" />
+          <Property Name="CurrencyTypeId" Type="int" />
+          <Property Name="Balance" Type="float" />
+          <Property Name="ReferenceNumber" Type="varchar" MaxLength="75" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
         <Function Name="getaccounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AccountId" Type="int" Mode="In" />
           <Parameter Name="AccountNumber" Type="varchar" Mode="In" />
@@ -87,7 +166,6 @@
           <Parameter Name="PayeeIdentification" Type="varchar" Mode="In" />
           <Parameter Name="PayeeBankId" Type="int" Mode="In" />
           <Parameter Name="TransactionTypeId" Type="int" Mode="In" />
-          <Parameter Name="CreationDate" Type="datetime" Mode="In" />
           <Parameter Name="Number" Type="varchar" Mode="In" />
           <Parameter Name="Concept" Type="varchar" Mode="In" />
           <Parameter Name="Debit" Type="float" Mode="In" />
@@ -99,9 +177,14 @@
           <Parameter Name="StatusId" Type="int" Mode="In" />
           <Parameter Name="NewId" Type="int" Mode="InOut" />
         </Function>
-        <EntityContainer Name="CoreDbModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+        <EntityContainer Name="CoreDbModelStoreContainer">
+          <EntitySet Name="accounts" EntityType="Self.accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="banks" EntityType="Self.banks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cards" EntityType="Self.cards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -188,7 +271,6 @@
             <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
             <Parameter Name="PayeeBankId" Mode="In" Type="Int32" />
             <Parameter Name="TransactionTypeId" Mode="In" Type="Int32" />
-            <Parameter Name="CreationDate" Mode="In" Type="DateTime" />
             <Parameter Name="Number" Mode="In" Type="String" />
             <Parameter Name="Concept" Mode="In" Type="String" />
             <Parameter Name="Debit" Mode="In" Type="Double" />
@@ -198,6 +280,25 @@
             <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
             <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
             <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="accounts" EntityType="CoreDbModel.accounts" />
+          <EntitySet Name="banks" EntityType="CoreDbModel.banks" />
+          <EntitySet Name="cards" EntityType="CoreDbModel.cards" />
+          <EntitySet Name="clients" EntityType="CoreDbModel.clients" />
+          <EntitySet Name="transactions" EntityType="CoreDbModel.transactions" />
+          <FunctionImport Name="InsertOrUpdateAccount1">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Alias" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="String" />
+            <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+            <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="LastUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastTransation" Mode="In" Type="DateTime" />
+            <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+            <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="Balance" Mode="In" Type="Double" />
             <Parameter Name="NewId" Mode="InOut" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -265,6 +366,85 @@
           <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="StatusId" Nullable="true" />
         </ComplexType>
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Alias" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="AccountTypeId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="LastTransation" Type="DateTime" Precision="3" />
+          <Property Name="AccountManagerId" Type="Int32" />
+          <Property Name="CurrencyTypeId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Balance" Type="Double" />
+        </EntityType>
+        <EntityType Name="banks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Identification" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CutOffDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentLimitDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Limit" Type="Double" />
+          <Property Name="CurrencyTypes" Type="Int32" />
+          <Property Name="Balance" Type="Double" />
+        </EntityType>
+        <EntityType Name="clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IdentificationTypeId" Type="Int32" />
+          <Property Name="Identification" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="CurrencyTypeId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PayerId" Type="Int32" />
+          <Property Name="PayerAccount" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="PayerIdentification" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="PayeeId" Type="Int32" Nullable="false" />
+          <Property Name="PayeeAccount" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="PayeeIdentification" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="PayeeBankId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionTypeId" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="Number" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Concept" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Name="Debit" Type="Double" />
+          <Property Name="Credit" Type="Double" />
+          <Property Name="CurrencyTypeId" Type="Int32" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="ReferenceNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusId" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -355,10 +535,94 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="InsertOrUpdateAccount" FunctionName="CoreDbModel.Store.InsertOrUpdateAccount" />
           <FunctionImportMapping FunctionImportName="InsertOrUpdateCard" FunctionName="CoreDbModel.Store.InsertOrUpdateCard" />
           <FunctionImportMapping FunctionImportName="InsertOrUpdateClient" FunctionName="CoreDbModel.Store.InsertOrUpdateClient" />
           <FunctionImportMapping FunctionImportName="InsertOrUpdateTransaction" FunctionName="CoreDbModel.Store.InsertOrUpdateTransaction" />
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="CoreDbModel.accounts">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+                <ScalarProperty Name="LastTransation" ColumnName="LastTransation" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="banks">
+            <EntityTypeMapping TypeName="CoreDbModel.banks">
+              <MappingFragment StoreEntitySet="banks">
+                <ScalarProperty Name="Identification" ColumnName="Identification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cards">
+            <EntityTypeMapping TypeName="CoreDbModel.cards">
+              <MappingFragment StoreEntitySet="cards">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CurrencyTypes" ColumnName="CurrencyTypes" />
+                <ScalarProperty Name="Limit" ColumnName="Limit" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="PaymentLimitDate" ColumnName="PaymentLimitDate" />
+                <ScalarProperty Name="CutOffDate" ColumnName="CutOffDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="CoreDbModel.clients">
+              <MappingFragment StoreEntitySet="clients">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Identification" ColumnName="Identification" />
+                <ScalarProperty Name="IdentificationTypeId" ColumnName="IdentificationTypeId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="CoreDbModel.transactions">
+              <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+                <ScalarProperty Name="PayeeBankId" ColumnName="PayeeBankId" />
+                <ScalarProperty Name="PayeeIdentification" ColumnName="PayeeIdentification" />
+                <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+                <ScalarProperty Name="PayeeId" ColumnName="PayeeId" />
+                <ScalarProperty Name="PayerIdentification" ColumnName="PayerIdentification" />
+                <ScalarProperty Name="PayerAccount" ColumnName="PayerAccount" />
+                <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateAccount1" FunctionName="CoreDbModel.Store.InsertOrUpdateAccount" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

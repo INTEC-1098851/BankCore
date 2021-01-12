@@ -32,9 +32,9 @@ namespace CoreBll
         Active=1,
         Inactive
     }
-    public enum TransactionType
+    public enum TransactionTypeEnum
     {
-        Deposit=1,
-        BankTransfer=2
+        Deposit = 1,
+        BankTransfer = 2
     }
 }

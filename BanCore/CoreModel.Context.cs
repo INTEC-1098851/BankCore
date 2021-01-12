@@ -27,6 +27,11 @@ namespace BanCore
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<accounts> accounts { get; set; }
+        public virtual DbSet<banks> banks { get; set; }
+        public virtual DbSet<cards> cards { get; set; }
+        public virtual DbSet<clients> clients { get; set; }
+        public virtual DbSet<transactions> transactions { get; set; }
     
         public virtual ObjectResult<getaccounts_Result> getaccounts(Nullable<int> accountId, string accountNumber, Nullable<int> clientId, Nullable<int> currencyTypeId)
         {
@@ -280,7 +285,7 @@ namespace BanCore
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateClient", idParameter, nameParameter, lastNameParameter, identificationTypeIdParameter, identificationParameter, telephoneParameter, addressParameter, genderIdParameter, statusIdParameter, newId);
         }
     
-        public virtual int InsertOrUpdateTransaction(Nullable<int> id, Nullable<int> payerId, string payerAccount, string payerIdentification, Nullable<int> payeeId, string payeeAccount, string payeeIdentification, Nullable<int> payeeBankId, Nullable<int> transactionTypeId, Nullable<System.DateTime> creationDate, string number, string concept, Nullable<double> debit, Nullable<double> credit, Nullable<int> currencyTypeId, Nullable<double> balance, string referenceNumber, Nullable<System.DateTime> effectiveDate, Nullable<int> statusId, ObjectParameter newId)
+        public virtual int InsertOrUpdateTransaction(Nullable<int> id, Nullable<int> payerId, string payerAccount, string payerIdentification, Nullable<int> payeeId, string payeeAccount, string payeeIdentification, Nullable<int> payeeBankId, Nullable<int> transactionTypeId, string number, string concept, Nullable<double> debit, Nullable<double> credit, Nullable<int> currencyTypeId, Nullable<double> balance, string referenceNumber, Nullable<System.DateTime> effectiveDate, Nullable<int> statusId, ObjectParameter newId)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("Id", id) :
@@ -318,10 +323,6 @@ namespace BanCore
                 new ObjectParameter("TransactionTypeId", transactionTypeId) :
                 new ObjectParameter("TransactionTypeId", typeof(int));
     
-            var creationDateParameter = creationDate.HasValue ?
-                new ObjectParameter("CreationDate", creationDate) :
-                new ObjectParameter("CreationDate", typeof(System.DateTime));
-    
             var numberParameter = number != null ?
                 new ObjectParameter("Number", number) :
                 new ObjectParameter("Number", typeof(string));
@@ -358,7 +359,56 @@ namespace BanCore
                 new ObjectParameter("StatusId", statusId) :
                 new ObjectParameter("StatusId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateTransaction", idParameter, payerIdParameter, payerAccountParameter, payerIdentificationParameter, payeeIdParameter, payeeAccountParameter, payeeIdentificationParameter, payeeBankIdParameter, transactionTypeIdParameter, creationDateParameter, numberParameter, conceptParameter, debitParameter, creditParameter, currencyTypeIdParameter, balanceParameter, referenceNumberParameter, effectiveDateParameter, statusIdParameter, newId);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateTransaction", idParameter, payerIdParameter, payerAccountParameter, payerIdentificationParameter, payeeIdParameter, payeeAccountParameter, payeeIdentificationParameter, payeeBankIdParameter, transactionTypeIdParameter, numberParameter, conceptParameter, debitParameter, creditParameter, currencyTypeIdParameter, balanceParameter, referenceNumberParameter, effectiveDateParameter, statusIdParameter, newId);
+        }
+    
+        public virtual int InsertOrUpdateAccount1(Nullable<int> id, string alias, string number, Nullable<int> ownerId, Nullable<int> accountTypeId, Nullable<System.DateTime> lastUpdate, Nullable<System.DateTime> lastTransation, Nullable<int> accountManagerId, Nullable<int> currencyTypeId, Nullable<int> statusId, Nullable<double> balance, ObjectParameter newId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var aliasParameter = alias != null ?
+                new ObjectParameter("Alias", alias) :
+                new ObjectParameter("Alias", typeof(string));
+    
+            var numberParameter = number != null ?
+                new ObjectParameter("Number", number) :
+                new ObjectParameter("Number", typeof(string));
+    
+            var ownerIdParameter = ownerId.HasValue ?
+                new ObjectParameter("OwnerId", ownerId) :
+                new ObjectParameter("OwnerId", typeof(int));
+    
+            var accountTypeIdParameter = accountTypeId.HasValue ?
+                new ObjectParameter("AccountTypeId", accountTypeId) :
+                new ObjectParameter("AccountTypeId", typeof(int));
+    
+            var lastUpdateParameter = lastUpdate.HasValue ?
+                new ObjectParameter("LastUpdate", lastUpdate) :
+                new ObjectParameter("LastUpdate", typeof(System.DateTime));
+    
+            var lastTransationParameter = lastTransation.HasValue ?
+                new ObjectParameter("LastTransation", lastTransation) :
+                new ObjectParameter("LastTransation", typeof(System.DateTime));
+    
+            var accountManagerIdParameter = accountManagerId.HasValue ?
+                new ObjectParameter("AccountManagerId", accountManagerId) :
+                new ObjectParameter("AccountManagerId", typeof(int));
+    
+            var currencyTypeIdParameter = currencyTypeId.HasValue ?
+                new ObjectParameter("CurrencyTypeId", currencyTypeId) :
+                new ObjectParameter("CurrencyTypeId", typeof(int));
+    
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+    
+            var balanceParameter = balance.HasValue ?
+                new ObjectParameter("Balance", balance) :
+                new ObjectParameter("Balance", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateAccount1", idParameter, aliasParameter, numberParameter, ownerIdParameter, accountTypeIdParameter, lastUpdateParameter, lastTransationParameter, accountManagerIdParameter, currencyTypeIdParameter, statusIdParameter, balanceParameter, newId);
         }
     }
 }
