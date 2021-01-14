@@ -32,6 +32,11 @@ namespace BanCore
         public virtual DbSet<cards> cards { get; set; }
         public virtual DbSet<clients> clients { get; set; }
         public virtual DbSet<transactions> transactions { get; set; }
+        public virtual DbSet<empusers> empusers { get; set; }
+        public virtual DbSet<roles> roles { get; set; }
+        public virtual DbSet<sysusers> sysusers { get; set; }
+        public virtual DbSet<transactiontypes> transactiontypes { get; set; }
+        public virtual DbSet<users> users { get; set; }
     
         public virtual ObjectResult<getaccounts_Result> getaccounts(Nullable<int> accountId, string accountNumber, Nullable<int> clientId, Nullable<int> currencyTypeId)
         {
@@ -409,6 +414,195 @@ namespace BanCore
                 new ObjectParameter("Balance", typeof(double));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateAccount1", idParameter, aliasParameter, numberParameter, ownerIdParameter, accountTypeIdParameter, lastUpdateParameter, lastTransationParameter, accountManagerIdParameter, currencyTypeIdParameter, statusIdParameter, balanceParameter, newId);
+        }
+    
+        public virtual ObjectResult<GetEmpUsers_Result> GetEmpUsers(Nullable<int> id, string userName, string email, Nullable<int> employeeId, Nullable<int> roleId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("EmployeeId", employeeId) :
+                new ObjectParameter("EmployeeId", typeof(int));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmpUsers_Result>("GetEmpUsers", idParameter, userNameParameter, emailParameter, employeeIdParameter, roleIdParameter);
+        }
+    
+        public virtual ObjectResult<gettransactiontypes_Result> gettransactiontypes(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<gettransactiontypes_Result>("gettransactiontypes", idParameter, nameParameter);
+        }
+    
+        public virtual ObjectResult<getusers_Result> getusers(Nullable<int> id, string userName, string email, Nullable<int> clientId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getusers_Result>("getusers", idParameter, userNameParameter, emailParameter, clientIdParameter);
+        }
+    
+        public virtual int InsertOrUpdateEmpUser(Nullable<int> id, string userName, string email, string password, Nullable<int> employeeId, Nullable<int> roleId, Nullable<int> statusId, ObjectParameter newId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("EmployeeId", employeeId) :
+                new ObjectParameter("EmployeeId", typeof(int));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateEmpUser", idParameter, userNameParameter, emailParameter, passwordParameter, employeeIdParameter, roleIdParameter, statusIdParameter, newId);
+        }
+    
+        public virtual int InsertOrUpdateTransactionType(Nullable<int> id, string name, string description, Nullable<int> statusId, ObjectParameter newId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateTransactionType", idParameter, nameParameter, descriptionParameter, statusIdParameter, newId);
+        }
+    
+        public virtual int InsertOrUpdateUser(Nullable<int> id, string userName, string email, string password, Nullable<int> clientId, Nullable<int> statusId, ObjectParameter newId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateUser", idParameter, userNameParameter, emailParameter, passwordParameter, clientIdParameter, statusIdParameter, newId);
+        }
+    
+        public virtual ObjectResult<ValidateEmpUserCredentials_Result> ValidateEmpUserCredentials(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ValidateEmpUserCredentials_Result>("ValidateEmpUserCredentials", userNameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<ValidateUserCredentials_Result> ValidateUserCredentials(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ValidateUserCredentials_Result>("ValidateUserCredentials", userNameParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<getusers1_Result> getusers1(Nullable<int> id, string userName, string email, Nullable<int> clientId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getusers1_Result>("getusers1", idParameter, userNameParameter, emailParameter, clientIdParameter);
         }
     }
 }

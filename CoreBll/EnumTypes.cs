@@ -37,4 +37,10 @@ namespace CoreBll
         Deposit = 1,
         BankTransfer = 2
     }
+    public enum Role
+    {
+        Administrator = 1,
+        View = 2,
+        Crud= 3
+    }
 }

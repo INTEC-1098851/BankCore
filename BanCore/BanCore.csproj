@@ -124,6 +124,9 @@
       <DependentUpon>CoreWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="empusers.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="getaccounts_Result.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>
@@ -136,16 +139,48 @@
     <Compile Include="getclients_Result.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetEmpUsers_Result.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="gettransactions_Result.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="gettransactiontypes_Result.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getusers1_Result.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getusers_Result.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="roles.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\CardService.cs" />
     <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\EmployeeUserService.cs" />
     <Compile Include="Services\GeneralService.cs" />
     <Compile Include="Services\TransactionService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="sysusers.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="transactions.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transactiontypes.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValidateEmpUserCredentials_Result.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValidateUserCredentials_Result.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

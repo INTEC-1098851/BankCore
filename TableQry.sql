@@ -201,3 +201,204 @@ CREATE TABLE banks
     Name varchar(200),
     Identification varchar(11)
 )
+
+
+CREATE Table transactiontypes
+(
+	Id int identity(1,1) primary key,
+	Name varchar(50),
+	Description varchar(200),
+    StatusId int
+)
+GO
+
+
+
+CREATE Table transactiontypes
+(
+	Id int identity(1,1) primary key,
+	Name varchar(50),
+	Description varchar(200),
+    StatusId int
+)
+GO
+
+ALTER PROCEDURE gettransactiontypes
+(
+    @Id int=null,
+    @Name varchar(50)=null
+)
+AS
+select 
+        [Id] = transtype.Id
+       ,[Name] = max(transtype.Name)
+       ,[Description] = max(transtype.Description)
+       ,[StatusId] = max(transtype.StatusId)
+from [dbo].[transactiontypes] transtype
+where ((@Id is null) or (transtype.Id= @Id)) 
+group by transtype.Id
+go
+
+
+create TABLE [dbo].[users]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Email] VARCHAR(100) NULL, 
+    [UserName] varchar(50),
+    [Password] VARCHAR(250) NULL, 
+    [ClientId] INT NOT NULL,
+    [StatusId] int
+)
+Go
+create TABLE [dbo].[empusers]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Email] VARCHAR(100) NULL, 
+    [UserName] varchar(50),
+    [Password] VARCHAR(250) NULL, 
+    [EmployeeId] INT NOT NULL,
+    [RoleId] INT NOT NULL,
+    [StatusId] int
+)
+CREATE TABLE [dbo].[roles]
+(
+    [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] VARCHAR(50) NULL, 
+    [Description] VARCHAR(200) NULL,
+    [StatusId] int
+)
+GO
+
+ALTER PROCEDURE InsertOrUpdateUser
+(
+	@Id int,
+	@UserName varchar(50),
+	@Email varchar(100),
+    @Password varchar(250),
+    @ClientId int,
+    @StatusId int,
+	@NewId int output
+)
+AS 
+if exists(select 1 from users where Id = @Id or ClientId = @ClientId)
+update users set Email = @Email,Password = @Password, UserName = @UserName,StatusId = @StatusId
+where Id = @Id or ClientId = @ClientId
+else
+insert into users
+(UserName,Email,Password,ClientId,StatusId)
+values
+(@UserName,@Email,@Password,@ClientId,@StatusId)
+select @NewId = SCOPE_IDENTITY()
+GO
+
+alter PROCEDURE getusers
+(
+    @Id int=null,
+    @UserName varchar(50) =null,
+    @Email varchar(100)=null,
+    @ClientId int=null
+)
+AS
+select 
+        [Id] = usr.Id
+       ,[UserName] = max(usr.UserName)
+       ,[Email] = max(usr.Email)
+       ,[Password] = max(usr.Password)
+       ,[ClientId] = max(usr.ClientId)
+       ,[StatusId] = max(usr.StatusId)
+from [dbo].[users] usr
+where ((@Id is null) or (usr.Id= @Id)) and
+((@UserName is null) or (usr.UserName= @UserName)) and
+((@Email is null) or (usr.Email= @Email)) and
+((@ClientId is null) or (usr.ClientId= @ClientId))
+group by usr.Id
+go
+
+alter PROCEDURE ValidateUserCredentials
+(
+    @UserName varchar(50),
+    @Password varchar(250)
+)
+AS
+if exists(select 1 from users where UserName = @UserName and Password = @Password and StatusId =1 )
+select 
+        [Id] = usr.Id
+       ,[UserName] = max(usr.UserName)
+       ,[Email] = max(usr.Email)
+       ,[Password] = max(usr.Password)
+       ,[ClientId] = max(usr.ClientId)
+       ,[StatusId] = max(usr.StatusId)
+from [dbo].[users] usr
+where (usr.UserName= @UserName) and Password = @Password and StatusId = 1
+group by usr.Id
+go
+
+alter PROCEDURE InsertOrUpdateEmpUser
+(
+	@Id int,
+	@UserName varchar(50),
+	@Email varchar(100),
+    @Password varchar(250),
+    @EmployeeId int,
+    @RoleId int,
+    @StatusId int,
+	@NewId int output
+)
+AS 
+if exists(select 1 from empusers where Id = @Id or EmployeeId = @EmployeeId)
+update empusers set Email = @Email,Password = @Password, UserName = @UserName,RoleId = @RoleId,StatusId = @StatusId
+where Id = @Id or EmployeeId = @EmployeeId
+else
+insert into empusers
+(UserName,Email,Password,EmployeeId,RoleId,StatusId)
+values
+(@UserName,@Email,@Password,@EmployeeId,@RoleId,@StatusId)
+select @NewId = SCOPE_IDENTITY()
+GO
+
+alter PROCEDURE GetEmpUsers
+(
+    @Id int=null,
+    @UserName varchar(50) =null,
+    @Email varchar(100)=null,
+    @EmployeeId int=null,
+    @RoleId int = null
+)
+AS
+select 
+        [Id] = usr.Id
+       ,[UserName] = max(usr.UserName)
+       ,[Email] = max(usr.Email)
+       ,[Password] = max(usr.Password)
+       ,[EmployeeId] = max(usr.EmployeeId)
+       ,[RoleId] = max(usr.RoleId)
+       ,[StatusId] = max(usr.StatusId)
+from [dbo].[empusers] usr
+where ((@Id is null) or (usr.Id= @Id)) and
+((@UserName is null) or (usr.UserName= @UserName)) and
+((@Email is null) or (usr.Email= @Email)) and
+((@EmployeeId is null) or (usr.EmployeeId= @EmployeeId)) and
+((@RoleId is null) or (usr.RoleId = @RoleId))
+group by usr.Id
+go
+
+alter PROCEDURE ValidateEmpUserCredentials
+(
+    @UserName varchar(50),
+    @Password varchar(250)
+)
+AS
+if exists(select 1 from empusers where UserName = @UserName and Password = @Password and StatusId = 1 )
+select 
+        [Id] = usr.Id
+       ,[UserName] = max(usr.UserName)
+       ,[Email] = max(usr.Email)
+       ,[Password] = max(usr.Password)
+       ,[EmployeeId] = max(usr.EmployeeId)
+       ,[RoleId] = max(usr.RoleId)
+       ,[StatusId] = max(usr.StatusId)
+from [dbo].[empusers] usr
+where (usr.UserName= @UserName and usr.Password = @Password and StatusId = 1)
+group by usr.Id
+go
+

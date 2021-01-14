@@ -118,35 +118,37 @@ namespace BanCore.Services
             }
             return card;
         }
-        public Card GetByClient(int clientId)
+        public List<Card> GetByClient(int clientId)
         {
-            Card card = new Card();
+            List<Card> cards = new List<Card>();
             var rows = db.getcards(null, clientId, null);
-            if (rows.Count() == 1)
+            if (rows.Count() > 0)
             {
-                var r = rows.FirstOrDefault();
-                card = new Card
+                foreach (var r in rows)
                 {
-                    //Available = r.Available,
-                    Balance = (float)r.Balance,
-                    CreationDate = (DateTime)r.CreationDate,
-                    CurrencyTypes = (CurrencyType)r.CurrencyTypes,
-                    //CutOffBalance = (float)r.CutOffBalance, 
-                    CutOffDate = (DateTime)r.CutOffDate,
-                    //ExpiredAmount = (float)r.ExpiredAmount,
-                    //ExpiredBill = (float)r.ExpiredBill,
-                    Id = (int)r.Id,
-                    //LastBalance = (float)r.LastBalance,
-                    //LastPayment = (float)r.LastPayment,
-                    //LastPaymentDate = (DateTime)r.LastPaymentDate,
-                    Limit = (float)r.Limit,
-                    //MinimumPayment = (float)r.MinimumPayment,
-                    Number = r.Number,
-                    OwnerId = (int)r.OwnerId,
-                    Status = (Status)r.StatusId
-                };
+                    cards.Add(new Card
+                    {
+                        //Available = r.Available,
+                        Balance = (float)r.Balance,
+                        CreationDate = (DateTime)r.CreationDate,
+                        CurrencyTypes = (CurrencyType)r.CurrencyTypes,
+                        //CutOffBalance = (float)r.CutOffBalance, 
+                        CutOffDate = (DateTime)r.CutOffDate,
+                        //ExpiredAmount = (float)r.ExpiredAmount,
+                        //ExpiredBill = (float)r.ExpiredBill,
+                        Id = (int)r.Id,
+                        //LastBalance = (float)r.LastBalance,
+                        //LastPayment = (float)r.LastPayment,
+                        //LastPaymentDate = (DateTime)r.LastPaymentDate,
+                        Limit = (float)r.Limit,
+                        //MinimumPayment = (float)r.MinimumPayment,
+                        Number = r.Number,
+                        OwnerId = (int)r.OwnerId,
+                        Status = (Status)r.StatusId
+                    });
+                }
             }
-            return card;
+            return cards;
         }
         public Card GetByNumber(string number)
         {

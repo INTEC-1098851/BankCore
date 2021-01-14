@@ -1,0 +1,9 @@
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb

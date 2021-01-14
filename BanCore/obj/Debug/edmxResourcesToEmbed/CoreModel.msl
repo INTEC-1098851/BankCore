@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoreDbModelStoreContainer" CdmEntityContainer="CoreDbEntities">
+    <FunctionImportMapping FunctionImportName="getaccounts" FunctionName="CoreDbModel.Store.getaccounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.getaccounts_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="LastTransaction" ColumnName="LastTransaction" />
+          <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getbanks" FunctionName="CoreDbModel.Store.getbanks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.getbanks_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Identification" ColumnName="Identification" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getcards" FunctionName="CoreDbModel.Store.getcards">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.getcards_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CutOffDate" ColumnName="CutOffDate" />
+          <ScalarProperty Name="PaymentLimitDate" ColumnName="PaymentLimitDate" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Limit" ColumnName="Limit" />
+          <ScalarProperty Name="CurrencyTypes" ColumnName="CurrencyTypes" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getclients" FunctionName="CoreDbModel.Store.getclients">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.getclients_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IdentificationTypeId" ColumnName="IdentificationTypeId" />
+          <ScalarProperty Name="Identification" ColumnName="Identification" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="gettransactions" FunctionName="CoreDbModel.Store.gettransactions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.gettransactions_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="PayerAccount" ColumnName="PayerAccount" />
+          <ScalarProperty Name="PayerIdentification" ColumnName="PayerIdentification" />
+          <ScalarProperty Name="PayeeId" ColumnName="PayeeId" />
+          <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+          <ScalarProperty Name="PayeeIdentification" ColumnName="PayeeIdentification" />
+          <ScalarProperty Name="PayeeBankId" ColumnName="PayeeBankId" />
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Concept" ColumnName="Concept" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateCard" FunctionName="CoreDbModel.Store.InsertOrUpdateCard" />
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateClient" FunctionName="CoreDbModel.Store.InsertOrUpdateClient" />
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateTransaction" FunctionName="CoreDbModel.Store.InsertOrUpdateTransaction" />
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="CoreDbModel.accounts">
+        <MappingFragment StoreEntitySet="accounts">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+          <ScalarProperty Name="LastTransation" ColumnName="LastTransation" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AccountTypeId" ColumnName="AccountTypeId" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="CoreDbModel.banks">
+        <MappingFragment StoreEntitySet="banks">
+          <ScalarProperty Name="Identification" ColumnName="Identification" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cards">
+      <EntityTypeMapping TypeName="CoreDbModel.cards">
+        <MappingFragment StoreEntitySet="cards">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CurrencyTypes" ColumnName="CurrencyTypes" />
+          <ScalarProperty Name="Limit" ColumnName="Limit" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="PaymentLimitDate" ColumnName="PaymentLimitDate" />
+          <ScalarProperty Name="CutOffDate" ColumnName="CutOffDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="CoreDbModel.clients">
+        <MappingFragment StoreEntitySet="clients">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Identification" ColumnName="Identification" />
+          <ScalarProperty Name="IdentificationTypeId" ColumnName="IdentificationTypeId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="CoreDbModel.transactions">
+        <MappingFragment StoreEntitySet="transactions">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="ReferenceNumber" ColumnName="ReferenceNumber" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CurrencyTypeId" ColumnName="CurrencyTypeId" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Concept" ColumnName="Concept" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="PayeeBankId" ColumnName="PayeeBankId" />
+          <ScalarProperty Name="PayeeIdentification" ColumnName="PayeeIdentification" />
+          <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+          <ScalarProperty Name="PayeeId" ColumnName="PayeeId" />
+          <ScalarProperty Name="PayerIdentification" ColumnName="PayerIdentification" />
+          <ScalarProperty Name="PayerAccount" ColumnName="PayerAccount" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateAccount1" FunctionName="CoreDbModel.Store.InsertOrUpdateAccount" />
+    <EntitySetMapping Name="empusers">
+      <EntityTypeMapping TypeName="CoreDbModel.empusers">
+        <MappingFragment StoreEntitySet="empusers">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="CoreDbModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysusers">
+      <EntityTypeMapping TypeName="CoreDbModel.sysusers">
+        <MappingFragment StoreEntitySet="sysusers">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactiontypes">
+      <EntityTypeMapping TypeName="CoreDbModel.transactiontypes">
+        <MappingFragment StoreEntitySet="transactiontypes">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="CoreDbModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetEmpUsers" FunctionName="CoreDbModel.Store.GetEmpUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.GetEmpUsers_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="gettransactiontypes" FunctionName="CoreDbModel.Store.gettransactiontypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.gettransactiontypes_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateEmpUser" FunctionName="CoreDbModel.Store.InsertOrUpdateEmpUser" />
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateTransactionType" FunctionName="CoreDbModel.Store.InsertOrUpdateTransactionType" />
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateUser" FunctionName="CoreDbModel.Store.InsertOrUpdateUser" />
+    <FunctionImportMapping FunctionImportName="ValidateEmpUserCredentials" FunctionName="CoreDbModel.Store.ValidateEmpUserCredentials">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.ValidateEmpUserCredentials_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ValidateUserCredentials" FunctionName="CoreDbModel.Store.ValidateUserCredentials">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.ValidateUserCredentials_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getusers1" FunctionName="CoreDbModel.Store.getusers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoreDbModel.getusers1_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

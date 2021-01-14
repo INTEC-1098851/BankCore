@@ -44,5 +44,30 @@ namespace CoreBll
             }
             return true;
         }
+        public static bool ValidateTransactionType(TransactionType type)
+        {
+            if (type.Id == 0 || string.IsNullOrEmpty(type.Name))
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool ValidateUser(User user)
+        {
+            if (user.Id == 0 || user.ClientId == 0 || string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+            {
+                return false;
+            }
+            return true;
+        }
+    
+        public static bool ValidateEmployeeUser(EmployeeUser user)
+        {
+            if (user.Id == 0 || user.EmployeeId == 0 || string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
