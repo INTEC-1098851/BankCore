@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://bancore.azurewebsites.net/CoreWS.asmx?wsdl" docRef="https://bancore.azurewebsites.net/CoreWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://bancore.azurewebsites.net/CoreWS.asmx" xmlns:q1="http://tempuri.org/" binding="q1:CoreWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://bancore.azurewebsites.net/CoreWS.asmx" xmlns:q2="http://tempuri.org/" binding="q2:CoreWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

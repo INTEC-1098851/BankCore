@@ -1,0 +1,44 @@
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+C:\Users\fredd\source\repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+C:\Users\fredd\source\repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\AzureBanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Debug\netstandard2.0\CoreBll.deps.json
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Debug\netstandard2.0\CoreBll.dll
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.dll
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Debug\netstandard2.0\CoreBll.csprojAssemblyReference.cache

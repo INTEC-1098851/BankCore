@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\BanCore\obj\Release\Package\PackageTmp" />
+  <setAcl path="F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\BanCore\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\BanCore\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <setAcl path="F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\BanCore\obj\Release\Package\PackageTmp\App_Data" setAclResourceType="Directory" setAclAccess="Write" />
+</sitemanifest>

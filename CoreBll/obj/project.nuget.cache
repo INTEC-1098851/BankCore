@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Oox7aIVr1wUBP4udHDlPdY5bkzMeH6mKhgw7W5+0nlx17sZYKEuyxiMJe3mKvQPNTBeVHQcyZKp1XHfEEhFOhA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\omarm\\Source\\Repos\\BanCoreAgain\\CoreBll\\CoreBll.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\omarm\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\omarm\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

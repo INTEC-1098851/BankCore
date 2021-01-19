@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="CoreDbEntities-Web.config Connection String" description="CoreDbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/CoreModel.csdl|res://*/CoreModel.ssdl|res://*/CoreModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=dbbancore.database.windows.net;initial catalog=dbbancore;persist security info=True;user id=dba;password=Admin123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\OneDrive\ -\ INTEC\\NOV-DIC\ 2020\\INS215\ Programacion\ 3\\BanCoreAzure\\BanCore\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CoreDbEntities']/@connectionString" />
+  </parameter>
+</parameters>

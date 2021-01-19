@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CoreBll.Account">
+    <Position X="9.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>YAAGgICMACIAgCAAAEgAACJQAAAAAAAAQAAAEAAAAAA=</HashCode>
+      <FileName>Account.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccountType" />
+      <Property Name="CurrencyType" />
+      <Property Name="Owner" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoreBll.Bank">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoreBll.Card">
+    <Position X="11.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAACEIiOEAAAAAQEgEkAASBIAAgBAAAAAAAAAAAAACQ=</HashCode>
+      <FileName>Card.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrencyTypes" />
+      <Property Name="Owner" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoreBll.Client">
+    <Position X="6.25" Y="2.5" Width="1.75" />
+    <AssociationLine Name="Status" Type="CoreBll.Status" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.105" Y="5.526" />
+        <Point X="7.105" Y="8.661" />
+        <Point X="6.677" Y="8.661" Type="JumpStart" />
+        <Point X="6.51" Y="8.661" Type="JumpEnd" />
+        <Point X="5.862" Y="8.661" />
+        <Point X="5.862" Y="8.688" />
+        <Point X="5.25" Y="8.688" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAANAAAAAICAAAAAAAYAAAAAEBCCQIAAAAAAAAg=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrencyType" />
+      <Property Name="Gender" />
+      <Property Name="IdentificationType" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoreBll.Transaction">
+    <Position X="2.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>SQgCAACMAEAAAAABgEgAACMEGAAAAAFAQCAAEEUAIAA=</HashCode>
+      <FileName>Transaction.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bank" />
+      <Property Name="CurrencyType" />
+      <Property Name="Payer" />
+      <Property Name="TransactionType" />
+      <Property Name="Status" />
+      <Property Name="Payee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CoreBll.TransactionHistory">
+    <Position X="0.5" Y="6.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAABAA=</HashCode>
+      <FileName>TransactionHistory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Transaction" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="CoreBll.Gender">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CoreBll.IdentificationType">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CoreBll.AccountType">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CoreBll.CurrencyType">
+    <Position X="10" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CoreBll.Status">
+    <Position X="3.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CoreBll.TransactionType">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>EnumTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

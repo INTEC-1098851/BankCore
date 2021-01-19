@@ -1,0 +1,27 @@
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Release\netstandard2.0\CoreBll.deps.json
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Release\netstandard2.0\CoreBll.dll
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\bin\Release\netstandard2.0\CoreBll.pdb
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.dll
+C:\Users\Fsoto\Source\Repos\BanCore\CoreBll\obj\Release\netstandard2.0\CoreBll.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Release\netstandard2.0\CoreBll.deps.json
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Release\netstandard2.0\CoreBll.dll
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\bin\Release\netstandard2.0\CoreBll.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfo.cs
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.dll
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreBll\obj\Release\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Release\netstandard2.0\CoreBll.deps.json
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Release\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\bin\Release\netstandard2.0\CoreBll.pdb
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.csprojAssemblyReference.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfoInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.AssemblyInfo.cs
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.csproj.CoreCompileInputs.cache
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.dll
+F:\OneDrive - INTEC\NOV-DIC 2020\INS215 Programacion 3\BanCoreAzure\CoreBll\obj\Release\netstandard2.0\CoreBll.pdb

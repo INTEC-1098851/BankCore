@@ -1,0 +1,11 @@
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\log4net.config
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\CoreConsole.exe.config
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\CoreConsole.exe
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\CoreConsole.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\log4net.dll
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\bin\Debug\log4net.xml
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\obj\Debug\CoreConsole.csproj.CoreCompileInputs.cache
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\obj\Debug\CoreConsole.csproj.CopyComplete
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\obj\Debug\CoreConsole.exe
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\obj\Debug\CoreConsole.pdb
+C:\Users\omarm\Source\Repos\BanCoreAgain\CoreConsole\obj\Debug\CoreConsole.csprojAssemblyReference.cache

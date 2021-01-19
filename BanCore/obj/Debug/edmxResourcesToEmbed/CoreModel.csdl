@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoreDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CoreDbEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="getaccounts" ReturnType="Collection(CoreDbModel.getaccounts_Result)">
+      <Parameter Name="AccountId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getbanks" ReturnType="Collection(CoreDbModel.getbanks_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getcards" ReturnType="Collection(CoreDbModel.getcards_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="CardNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getclients" ReturnType="Collection(CoreDbModel.getclients_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Identification" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="gettransactions" ReturnType="Collection(CoreDbModel.gettransactions_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeAccount" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="CreationDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="CreationDateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateAccount">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Alias" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="LastUpdate" Mode="In" Type="DateTime" />
+      <Parameter Name="LastTransation" Mode="In" Type="DateTime" />
+      <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Balance" Mode="In" Type="Double" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateCard">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="CutOffDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PaymentLimitDate" Mode="In" Type="DateTime" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Limit" Mode="In" Type="Double" />
+      <Parameter Name="CurrencyTypes" Mode="In" Type="Int32" />
+      <Parameter Name="Balance" Mode="In" Type="Double" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateClient">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="IdentificationTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Identification" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="GenderId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateTransaction">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeAccount" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeBankId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="Concept" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Double" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PayerBalance" Mode="In" Type="Double" />
+      <Parameter Name="PayeeBalance" Mode="In" Type="Double" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="accounts" EntityType="CoreDbModel.accounts" />
+    <EntitySet Name="banks" EntityType="CoreDbModel.banks" />
+    <EntitySet Name="cards" EntityType="CoreDbModel.cards" />
+    <EntitySet Name="clients" EntityType="CoreDbModel.clients" />
+    <FunctionImport Name="InsertOrUpdateAccount1">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Alias" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="LastUpdate" Mode="In" Type="DateTime" />
+      <Parameter Name="LastTransation" Mode="In" Type="DateTime" />
+      <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Balance" Mode="In" Type="Double" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="empusers" EntityType="CoreDbModel.empusers" />
+    <EntitySet Name="roles" EntityType="CoreDbModel.roles" />
+    <EntitySet Name="transactiontypes" EntityType="CoreDbModel.transactiontypes" />
+    <FunctionImport Name="GetEmpUsers" ReturnType="Collection(CoreDbModel.GetEmpUsers_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="gettransactiontypes" ReturnType="Collection(CoreDbModel.gettransactiontypes_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getusers" ReturnType="Collection(CoreDbModel.getusers_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateEmpUser">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateTransactionType">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateUser">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateEmpUserCredentials" ReturnType="Collection(CoreDbModel.ValidateEmpUserCredentials_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateUserCredentials" ReturnType="Collection(CoreDbModel.ValidateUserCredentials_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getusers1" ReturnType="Collection(CoreDbModel.getusers1_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="users" EntityType="CoreDbModel.users" />
+    <FunctionImport Name="getusers2" ReturnType="Collection(CoreDbModel.getusers2_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateEmpUserCredentials1" ReturnType="Collection(CoreDbModel.ValidateEmpUserCredentials1_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateEmpUserCredentials2" ReturnType="Collection(CoreDbModel.ValidateEmpUserCredentials2_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateEmpUserCredentials3">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateEmpUserCredentials4" ReturnType="Collection(Int32)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ValidateUserCredentials1" ReturnType="Collection(Int32)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="database_firewall_rules" EntityType="CoreDbModel.database_firewall_rules" />
+    <FunctionImport Name="getaccounts1" ReturnType="Collection(CoreDbModel.getaccounts1_Result)">
+      <Parameter Name="AccountId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="gettransactions1" ReturnType="Collection(CoreDbModel.gettransactions1_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeAccount" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="CreationDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="CreationDateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="transactions1Set" EntityType="CoreDbModel.transactions1" />
+    <FunctionImport Name="getaccounts2" ReturnType="Collection(CoreDbModel.getaccounts2_Result)">
+      <Parameter Name="AccountId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="ClientId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="gettransactions2" ReturnType="Collection(CoreDbModel.gettransactions2_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductNumber" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="CreationDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="CreationDateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="EffectiveDateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateTransaction1">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductNumber" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeBankId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="Concept" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Double" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PayerBalance" Mode="In" Type="Double" />
+      <Parameter Name="PayeeBalance" Mode="In" Type="Double" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateTransaction2">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="PayerId" Mode="In" Type="Int32" />
+      <Parameter Name="PayerAccount" Mode="In" Type="String" />
+      <Parameter Name="PayerIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="PayeeProductNumber" Mode="In" Type="String" />
+      <Parameter Name="PayeeIdentification" Mode="In" Type="String" />
+      <Parameter Name="PayeeBankId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="Concept" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Double" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceNumber" Mode="In" Type="String" />
+      <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+      <Parameter Name="PayerBalance" Mode="In" Type="Double" />
+      <Parameter Name="PayeeBalance" Mode="In" Type="Double" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Log" EntityType="CoreDbModel.Log" />
+    <FunctionImport Name="InsertOrUpdateAccount2">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Alias" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Balance" Mode="In" Type="Double" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateAccount3">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Alias" Mode="In" Type="String" />
+      <Parameter Name="Number" Mode="In" Type="String" />
+      <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountManagerId" Mode="In" Type="Int32" />
+      <Parameter Name="CurrencyTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="StatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Balance" Mode="In" Type="Double" />
+      <Parameter Name="NewId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="getaccounts_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Alias" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OwnerId" Nullable="true" />
+    <Property Type="Int32" Name="AccountTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastTransaction" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="AccountManagerId" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+    <Property Type="Double" Name="Balance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getbanks_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Identification" Nullable="true" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="getcards_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="OwnerId" Nullable="true" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CutOffDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="PaymentLimitDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+    <Property Type="Double" Name="Limit" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypes" Nullable="true" />
+    <Property Type="Double" Name="Balance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getclients_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="IdentificationTypeId" Nullable="true" />
+    <Property Type="String" Name="Identification" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="700" />
+    <Property Type="Int32" Name="GenderId" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="gettransactions_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PayerId" Nullable="true" />
+    <Property Type="String" Name="PayerAccount" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayerIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeId" Nullable="true" />
+    <Property Type="String" Name="PayeeAccount" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayeeIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeBankId" Nullable="true" />
+    <Property Type="Int32" Name="TransactionTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Concept" Nullable="true" MaxLength="700" />
+    <Property Type="Double" Name="Debit" Nullable="true" />
+    <Property Type="Double" Name="Credit" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="Double" Name="Balance" Nullable="true" />
+    <Property Type="String" Name="ReferenceNumber" Nullable="true" MaxLength="75" />
+    <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Alias" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="AccountTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="LastTransation" Type="DateTime" Precision="3" />
+    <Property Name="AccountManagerId" Type="Int32" />
+    <Property Name="CurrencyTypeId" Type="Int32" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="Balance" Type="Double" />
+  </EntityType>
+  <EntityType Name="banks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Identification" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="CutOffDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentLimitDate" Type="DateTime" Precision="3" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="Limit" Type="Double" />
+    <Property Name="CurrencyTypes" Type="Int32" />
+    <Property Name="Balance" Type="Double" />
+  </EntityType>
+  <EntityType Name="clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="IdentificationTypeId" Type="Int32" />
+    <Property Name="Identification" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="CurrencyTypeId" Type="Int32" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="empusers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="transactiontypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="GetEmpUsers_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="gettransactiontypes_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getusers_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ClientId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ValidateEmpUserCredentials_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ValidateUserCredentials_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ClientId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getusers1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ClientId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="getusers2_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ClientId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ValidateEmpUserCredentials1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ValidateEmpUserCredentials2_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <ComplexType Name="getaccounts1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Alias" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OwnerId" Nullable="true" />
+    <Property Type="Int32" Name="AccountTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastTransaction" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="AccountManagerId" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+    <Property Type="Double" Name="Balance" Nullable="true" />
+    <Property Type="Double" Name="YesterdayBalance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="gettransactions1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PayerId" Nullable="true" />
+    <Property Type="String" Name="PayerAccount" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayerIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeId" Nullable="true" />
+    <Property Type="String" Name="PayeeAccount" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayeeIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeBankId" Nullable="true" />
+    <Property Type="Int32" Name="TransactionTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Concept" Nullable="true" MaxLength="700" />
+    <Property Type="Double" Name="Amount" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="String" Name="ReferenceNumber" Nullable="true" MaxLength="75" />
+    <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
+    <Property Type="Double" Name="PayerBalance" Nullable="true" />
+    <Property Type="Double" Name="PayeeBalance" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="transactions1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayerId" Type="Int32" />
+    <Property Name="PayerAccount" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="PayerIdentification" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="PayeeId" Type="Int32" Nullable="false" />
+    <Property Name="PayeeProductTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PayeeProductNumber" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="PayeeIdentification" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="PayeeBankId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionTypeId" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="Number" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="Concept" Type="String" MaxLength="700" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="CurrencyTypeId" Type="Int32" />
+    <Property Name="PayerBalance" Type="Double" />
+    <Property Name="PayeeBalance" Type="Double" />
+    <Property Name="ReferenceNumber" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+    <Property Name="StatusId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="getaccounts2_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Alias" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="OwnerId" Nullable="true" />
+    <Property Type="Int32" Name="AccountTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="LastTransaction" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="AccountManagerId" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+    <Property Type="Double" Name="Balance" Nullable="true" />
+    <Property Type="Double" Name="YesterdayBalance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="gettransactions2_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PayerId" Nullable="true" />
+    <Property Type="String" Name="PayerAccount" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayerIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeId" Nullable="true" />
+    <Property Type="Int32" Name="PayeeProductTypeId" Nullable="true" />
+    <Property Type="String" Name="PayeeProductNumber" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="PayeeIdentification" Nullable="true" MaxLength="13" />
+    <Property Type="Int32" Name="PayeeBankId" Nullable="true" />
+    <Property Type="Int32" Name="TransactionTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Concept" Nullable="true" MaxLength="700" />
+    <Property Type="Double" Name="Amount" Nullable="true" />
+    <Property Type="Int32" Name="CurrencyTypeId" Nullable="true" />
+    <Property Type="String" Name="ReferenceNumber" Nullable="true" MaxLength="75" />
+    <Property Type="DateTime" Name="EffectiveDate" Nullable="true" Precision="23" />
+    <Property Type="Double" Name="PayerBalance" Nullable="true" />
+    <Property Type="Double" Name="PayeeBalance" Nullable="true" />
+    <Property Type="Int32" Name="StatusId" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Thread" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Logger" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Thread" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logger" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
